@@ -17,7 +17,7 @@
 #include <vector>
 #include <random>
 #include <string>
-#include <version>
+// #include <version>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // wyhash.h
@@ -328,8 +328,8 @@ namespace wy {
 			/// <summary>
 			/// Create a wyhasher with default secret
 			/// </summary>
-			hash_imp() noexcept : secret{ 0xa0761d6478bd642full, 0xe7037ed1a0b428dbull, 0x8ebc6af09c88c6e3ull, 0x589965cc75374cc3ull }// the default secret parameters
-			{}
+			//hash_imp() noexcept : secret{ 0xa0761d6478bd642full, 0xe7037ed1a0b428dbull, 0x8ebc6af09c88c6e3ull, 0x589965cc75374cc3ull }// the default secret parameters
+			//{}
 			/// <summary>
 			/// Create a wyhasher with secret generated from a seed
 			/// </summary>
@@ -426,7 +426,7 @@ namespace wy {
 			using hash_imp::hash_imp;// Inherit constructors
 			inline uint64_t operator()(const STRING_TYPE& elem) const noexcept
 			{
-				return hash_imp::wyhash(reinterpret_cast<const uint8_t*>(elem.data()), sizeof(STRING_TYPE::value_type) * elem.size());
+				return hash_imp::wyhash(reinterpret_cast<const uint8_t*>(elem.data()), sizeof(typename STRING_TYPE::value_type) * elem.size());
 			}
 		};
 	};
